@@ -30,22 +30,22 @@ export class HomeComponent implements OnInit, OnDestroy {
   status: any;
 
   constructor(private pageHeaderService: PageHeaderService,
-               private homeService: HomeService,
-               private userService: UserService,
-               private cycleSelectionService: CycleSelectionService,
-               public authService: AuthService,
-               public dialog: MatDialog,
-               private snackBar: MatSnackBar,
-               private appraisalService: AppraisalService,
-               private cycleService: CycleService,
-               private router: Router) {
+              private homeService: HomeService,
+              private userService: UserService,
+              private cycleSelectionService: CycleSelectionService,
+              public authService: AuthService,
+              public dialog: MatDialog,
+              private snackBar: MatSnackBar,
+              private appraisalService: AppraisalService,
+              private cycleService: CycleService,
+              private router: Router) {
     pageHeaderService.setTitle('Home');
   }
 
   ngOnInit() {
     this.pageHeaderService.hideCycle();
     setTimeout(() => {
-      this.userService.getUsersByEmail(sessionStorage.getItem('userSigninName').toLowerCase()).subscribe(
+      this.userService.getUsersByEmail(sessionStorage.getItem('userSigninName')).subscribe(
         data => {
           this.loggedInUser = data;
           this.initialize();
@@ -61,8 +61,8 @@ export class HomeComponent implements OnInit, OnDestroy {
         for (const cycle of cycles) {
           if (cycle.status === 'ACTIVE') {
             this.cycle = cycle;
-            var today = new Date(this.today).getTime();
-            var endDate = new Date(this.cycle.selfAppraisalDeadline).getTime();
+            const today = new Date(this.today).getTime();
+            const endDate = new Date(this.cycle.selfAppraisalDeadline).getTime();
             if (today > endDate) {
               this.daysdiff = 0;
             } else {

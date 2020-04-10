@@ -26,7 +26,7 @@ export class GoalDefinitionComponent implements OnInit {
   ngOnInit() {
     //After loggin for the first time: When user navigates to any page from home page, the initialization of current and active cycles does not complete until ngOnInit on the second page finishes. So, timeout is set for the first navigation away from home component.
     setTimeout(() => {
-        this.userService.getUsersByEmail(sessionStorage.getItem('userSigninName').toLowerCase()).subscribe(
+        this.userService.getUsersByEmail(sessionStorage.getItem('userSigninName')).subscribe(
           data => {
             this.loggedInUser = data;
             this.authService.init();
@@ -37,7 +37,7 @@ export class GoalDefinitionComponent implements OnInit {
   }
 
   initialize() {
-    this.goalDefinitionService.getDefinitions(this.loggedInUser.id).subscribe(
+    this.goalDefinitionService.getDefinitions('5e7c818c84fcfe47601eddca').subscribe(
       response => {
         this.data = response;
       });
