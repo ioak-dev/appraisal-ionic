@@ -1,7 +1,14 @@
 # appraisal-ionic
 
-## Ionic
+## Installing Ionic
 
-Create a new ionic project
+Install the Ionic CLI with npm:
 
-`ionic start <project name> blank`
+`npm install -g @ionic/cli`
+
+Folow this guide for details on Ionic and Ionic Cli installation
+https://ionicframework.com/docs/intro/cli
+
+## Run the App
+
+`ionic serve`
