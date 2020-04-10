@@ -2,8 +2,6 @@
 
 ## Ionic
 
-Install ionic 4 for aAngular 7
+Create a new ionic project
 
-`npm install -g ionic@4.0.0`
-
-While installing chose the framework as 
+`ionic start <project name> blank`

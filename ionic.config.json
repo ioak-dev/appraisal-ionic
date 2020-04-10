@@ -1,0 +1,7 @@
+{
+  "name": "appraisal-ionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
